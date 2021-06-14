@@ -2,7 +2,7 @@
     <div id="contenitore_cards">
         <h2>questo è da CARDS</h2>
         <ul>
-            <li v-for="(film, index) in films" :key="index">
+            <li>
                 
                 <h2>TITOLO: {{ film.title }}</h2>
 

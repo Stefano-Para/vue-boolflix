@@ -1,6 +1,6 @@
 <template>
   <main>
-    <Cards />
+    <Cards v-for="(film, index) in films" :key="index"/>
   </main>
 </template>
 
@@ -11,7 +11,12 @@ export default {
     name: "Main",
     components: {
         Cards,
-    }
+    },
+    data: function () {
+        return {
+            films: ''
+        }
+    },
 }
 </script>
 
