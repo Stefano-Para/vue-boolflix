@@ -14,21 +14,16 @@ export default {
     name: 'Cards',
     props: {
         item: Object
-    },
-    data: function () {
-        return {
-            films: ''
-        }
-    },
-    created: function () {
-    }
+    }    
 }
 </script>
 
-<style lang="scss"  scoped>
+<style lang="scss" scoped>
     .card {
         display: flex;
         flex-direction: column;
+        background-color: #286687;
+        border-radius: 10px;
         width: calc(100% / 6);
         height: calc((100vh / 4) - 50px);
         overflow-y: auto;
@@ -36,5 +31,8 @@ export default {
         padding: 5px;
         margin: 10px;
     }
+        .card::-webkit-scrollbar {
+            width: 0;  /* Remove scrollbar space */
+        }
     
 </style>

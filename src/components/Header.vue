@@ -7,12 +7,17 @@
 
             <div id="searchbar">
                 <input
-                type="text"
-                placeholder="Ricerca..">
-
-                <button>Search</button>
+                    type="text"
+                    placeholder="Ricerca.."
+                    v-model="searchTitle"
+                    @keyup.enter="$emit('performSearch', lowerSearchTitle)">
 
             </div>
+
+            <div id="show-searched">
+                <h2>Stai cercando: <h6>"{{ lowerSearchTitle }}"</h6></h2>
+            </div>
+            
         </div>
     </header>
 </template>
@@ -21,9 +26,24 @@
 
 export default {
     name: 'Header',
-    props: {
-        "titles": Array
-    }
+    data: function() {
+        return {
+            searchTitle: ''
+        }
+    },
+    computed: {
+        lowerSearchTitle: function() {
+            return this.searchTitle.toLowerCase()
+        }
+    },
+    methods: {
+        search: function() {
+            console.log("ricerca")
+        }
+    },
+    // props: {
+    //     "titles": Array
+    // }
 }
 
 </script>
@@ -41,12 +61,21 @@ export default {
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
+            #show-searched {
+                width: 250px;
+                h2 {
+                color: lightgrey;
+                h6 {
+                    color: grey;
+                }
+            }
+            }
         }
         #searchbar {
             display: flex;
             align-items: center;
             input {
-                width: 300px;
+                width: 400px;
                 height: 30px;
                 padding: 10px;
                 margin-right: 25px;
