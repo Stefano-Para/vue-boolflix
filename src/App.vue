@@ -2,9 +2,11 @@
   <div id="app">
 
     <div id="big-wrap">
-     <Header />
+     <Header 
+     :titles="allTitles"/>
 
-    <Main /> 
+    <Main
+    @titlesFromMain="searchTitle" /> 
     </div>
 
   </div>
@@ -17,6 +19,16 @@ import Main from './components/Main.vue';
 
 export default {
   name: 'App',
+  data: function () {
+    return {
+      allTitles: []
+    }
+  },
+  methods: {
+    searchTitle: function (array) {
+      this.allTitles = array;
+    }
+  },
   components: {
     Header,
     Main

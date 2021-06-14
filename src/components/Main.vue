@@ -1,6 +1,7 @@
 <template>
   <main>
     <div id="container_cards">
+      <!-- mettere un v-if CAMPO DI RICERCA VUOTO => fai vedere una pagina di paraflix statica (banners o altro), v-else mostra cosa hai ricercato -->
       <Cards 
       v-for="(film, index) in films"
       :key="index"
@@ -48,7 +49,7 @@ export default {
                   }
                 );
 
-                this.$emit('richiestaTitolo', this.title)
+                this.$emit('titlesFromMain', this.title)
 
                 // ciclo forEach per visualizzazione in pagina:
                 

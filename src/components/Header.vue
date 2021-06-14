@@ -18,9 +18,14 @@
 </template>
 
 <script>
+
 export default {
-    name: 'Header'
+    name: 'Header',
+    props: {
+        "titles": Array
+    }
 }
+
 </script>
 
 <style lang="scss" scoped>
