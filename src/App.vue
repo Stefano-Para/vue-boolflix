@@ -1,38 +1,26 @@
 <template>
   <div id="app">
 
+    <Header />
 
+    <Main />
 
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import Header from './components/Header.vue';
+import Main from './components/Main.vue';
 
 export default {
   name: 'App',
   components: {
-    
+    Header,
+    Main
   },
   props: {
 
   },
-  // AXIOS DOVE DEVE ESSERE RICHIAMATO? NEL MIO CREATED O AL RESEARCH? 
-  created: function () {
-    axios
-    .get('https://api.themoviedb.org/3/search/movie', {
-      params: {
-        api_key: '9e009795b16be726404835f1279d61f7',
-        query: "ritorno",
-        language: "it-IT"
-      }
-    })
-    .then(
-      (res) => {
-        console.log(res);
-      }
-    )
-  }
 }
 </script>
 
