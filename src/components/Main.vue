@@ -1,10 +1,19 @@
 <template>
   <main>
-    <Cards v-for="(film, index) in films" :key="index"/>
+    <div id="container_cards">
+      <Cards 
+      v-for="(film, index) in films"
+      :key="index"
+      :item="film"   
+      />
+    </div>
+    
+
   </main>
 </template>
 
 <script>
+import axios from 'axios';
 import Cards from './Cards.vue';
 
 export default {
@@ -14,12 +23,51 @@ export default {
     },
     data: function () {
         return {
-            films: ''
+            films: [],
+            titles: [],
         }
     },
+    created: function () {
+    axios
+        .get('https://api.themoviedb.org/3/search/movie', {
+        params: {
+            api_key: '9e009795b16be726404835f1279d61f7',
+            query: "r",
+            language: "it-IT"
+        }
+        })
+        .then(
+            (importAxios) => {
+                // console.log(importAxios);
+                this.films = importAxios.data.results;
+                console.log(this.films)
+
+                this.films.forEach(
+                  (element) => {
+                    this.titles.push(element.title)
+                  }
+                );
+
+                this.$emit('richiestaTitolo', this.title)
+
+                // ciclo forEach per visualizzazione in pagina:
+                
+            }
+        )
+  }
 }
 </script>
 
-<style>
-
+<style  lang="scss" scoped>
+  main {
+    margin: 0 auto;
+    display: inline-block;
+    // overflow: scroll;
+  }
+  #container_cards {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
 </style>
