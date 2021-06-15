@@ -49,10 +49,11 @@ export default {
 
 <style lang="scss" scoped>
     header {
-        background-image: linear-gradient(to top, rgba(255, 0, 0, 0), rgba($color: #000000, $alpha: 0.5));
-        height: 80px;
+        background-image: linear-gradient(to top, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.5));
+        height: 150px;
         width: 100%;
-        
+        z-index: 0;
+        position: fixed;       
         #container_navbar {
             width: 80%;
             margin: 0 auto;

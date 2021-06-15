@@ -43,10 +43,10 @@ export default {
               // console.log(res);
               this.films = res.data.results;
               console.log(this.films)
-              if (this.original_language == "it") {
-                return this.language = this.language + "prova"
-              }
-            }
+              // if (this.original_language == "it") {
+              //   return this.language = this.language
+              // }
+            },
         )
     }
   },
@@ -65,8 +65,10 @@ export default {
     padding: 0;
   }
   #big-wrap {
-    background-color: #800e0e;
     min-height: 100vh;
+    background-image: linear-gradient(to top, rgb(0 0 0), rgb(255 0 0 / 85%));
   }
-
+//   background-color: #800e0e;
+  //   min-height: 100vh;
+  // }
 </style>

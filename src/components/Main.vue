@@ -41,6 +41,8 @@ export default {
     width: 100%;
     margin: 0 auto;
     display: inline-block;
+    position: relative;
+    top: 80px;
       #container_cards {
       width: 90%;
       margin: 0 auto;
