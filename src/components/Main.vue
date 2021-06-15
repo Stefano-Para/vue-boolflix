@@ -1,15 +1,31 @@
 <template>
   <main>
-    <div id="container_cards" v-if="searchedFilms.length > 0">
-      <!-- mettere un v-if CAMPO DI RICERCA VUOTO => fai vedere una pagina di paraflix statica (banners o altro), v-else mostra cosa hai ricercato -->
+    
+    <!-- se trovo in films  -->
+    <div class="container_cards" v-if="searchedFilms.length > 0">
 
+      <h2>I tuoi FILM</h2>
+      
       <Cards 
       v-for="(film, index) in searchedFilms"
       :key="index"
-      :item="film"   
+      :film="film"   
       />
-
     </div>
+    
+    <!-- se trovo in telefilms  -->
+    <div class="container_cards" v-else-if="searchedTelefilms.length > 0">
+
+      <h2>I tuoi TELEFILM</h2>
+
+      <Cards
+      v-for="(telefilm, index) in searchedTelefilms"
+      :key="index"
+      :telefilm="telefilm"
+      />
+    </div> 
+
+    <!-- se non trovo nulla  -->
     <div id="container_else" v-else>
         <h2>La tua ricerca non ha prodotto nessun risultato.</h2>
         <h3>Cerca il tuo film preferito nella barra di ricerca.</h3>
@@ -31,7 +47,8 @@ export default {
         }
     },
     props: {
-      searchedFilms: Array 
+      searchedFilms: Array,
+      searchedTelefilms: Array
     },
 }
 </script>
@@ -43,7 +60,7 @@ export default {
     display: inline-block;
     position: relative;
     top: 80px;
-      #container_cards {
+      .container_cards {
       width: 90%;
       margin: 0 auto;
       display: flex;

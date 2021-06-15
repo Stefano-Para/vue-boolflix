@@ -1,21 +1,44 @@
 <template>
-        <div class="card">
-            <h2>Titolo: {{ item.title }}</h2>
-            <h3>Titolo originale: {{ item.original_title }}</h3>
-            <h4> <!--  lingua + bandiera -->
-                Lingua: {{ item.original_language }}
-                <img v-if="item.original_language == 'it'"
-                    src="../assets/it.png"
+        <div class="container_film_telefilms">
+            <!-- films  -->
+            <div class="film_card">
+                <h2>{{ film.title }}</h2>
+                <h3>{{ film.original_title }}</h3>
+                <h4> <!--  lingua + bandiera -->
+                    Lingua: {{ film.original_language }}
+                    <img v-if="film.original_language == 'it'"
+                        src="../assets/it.png"
+                        alt="">
+                    <img v-else-if="film.original_language == 'en'"
+                    src="../assets/en.png"
                     alt="">
-                <img v-else-if="item.original_language == 'en'"
-                src="../assets/en.png"
-                alt="">
-                <img v-else
-                    src="../assets/miss.png"
-                    alt=""> 
-                <!-- to-do=spostare il v-if in methods  -->
-            </h4>
-            <h5>VOTO: {{ item.vote_average }}/10</h5>
+                    <img v-else
+                        src="../assets/miss.png"
+                        alt=""> 
+                    <!-- to-do=spostare il v-if in methods  -->
+                </h4>
+                <h5>VOTO: {{ film.vote_average }}/10</h5>
+            </div>
+
+            <!-- telefilms  -->
+            <div class="telefilms_card">
+                <h2>{{ telefilm.name }}</h2>
+                <h3>{{ telefilm.original_name }}</h3>
+                <h4> 
+                    Lingua: {{ telefilm.original_language }}
+                    <img v-if="telefilm.original_language == 'it'"
+                        src="../assets/it.png"
+                        alt="">
+                    <img v-else-if="telefilm.original_language == 'en'"
+                    src="../assets/en.png"
+                    alt="">
+                    <img v-else
+                        src="../assets/miss.png"
+                        alt=""> 
+                    
+                </h4>
+                <h5>{{ telefilm.vote_average }}/10</h5>
+            </div>
         </div>
 </template>
 
@@ -25,49 +48,21 @@ export default {
     name: 'Cards',
     data: function() {
         return {
-            // flag: '',
+            
         }
     },
     props: {
-        item: Object
+        telefilm: Object,
+        film: Object,
     },
     methods: {
     },
-    created: function() {
-        // if (this.item.original_language == "it" ) {
-        //     this.flag = require("../assets/it.png");
-        // } else if (this.item.original_language == "en" ) {
-        //     this.flag = require("../assets/en.png");
-        // } else {
-        //     this.flag = require("../assets/miss.png")
-        // }
-
-        // if (this.item.original_language == "it" || this.item.original_language == "en" ) { 
-        //     if (this.item.original_language == "it" ) {
-        //     this.flag = require("../assets/it.png");
-        //     } else if (this.item.original_language == "en" ) {
-        //         this.flag = require("../assets/en.png");
-        //     }
-        // } else {
-        //     this.flag = require("../assets/miss.png")
-        // }
-
-        // switch(this.flag) {
-        //     case this.item.original_language == "it":
-        //         this.flag = require("../assets/it.png")
-        //         break;
-        //     case this.item.original_language == "en":
-        //         this.flag = require("../assets/en.png");
-        //         break;
-        //     default:
-        //         this.flag = require("../assets/miss.png")
-        // }
-    }
 }
 </script>
 
 <style lang="scss" scoped>
-    .card {
+    .film_card,
+    .telefilm_card {
         display: flex;
         flex-direction: column;
         justify-content: space-between;

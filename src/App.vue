@@ -7,6 +7,7 @@
     
       <Main
       :searchedFilms="films"
+      :searchedTelefilms="telefilms"
        />
   
     </div>
@@ -23,7 +24,8 @@ export default {
   data: function () {
     return {
       // searchedText: '',
-      films: []
+      films: [],
+      telefilms: []
     }
   },
   methods: {
@@ -33,7 +35,7 @@ export default {
 
       axios.all ([
 
-        // telefilm
+        // s
         axios
           .get('https://api.themoviedb.org/3/search/tv', {
             params: {
@@ -55,9 +57,11 @@ export default {
         ])
         .then(
             (res) => {
-              this.films = res.data.results;
+              this.telefilms = res[0].data.results;
+              this.films = res[1].data.results;
+              // this.telefilms = res
               // I film trovati con la ricerca 
-              console.log(this.films)
+              console.log(res)
             },
         )
     }
