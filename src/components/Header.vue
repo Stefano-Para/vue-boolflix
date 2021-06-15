@@ -2,7 +2,9 @@
     <header>
         <div id="container_navbar">
             <div id="logo">
-                <img src="https://fontmeme.com/permalink/210614/5dd112198b1bd4cee91a23e783cdc370.png" alt="">
+                <a href="">
+                    <img src="https://fontmeme.com/permalink/210614/5dd112198b1bd4cee91a23e783cdc370.png" alt="">
+                </a>
             </div>
 
             <div id="searchbar">
@@ -10,11 +12,10 @@
                     type="text"
                     placeholder="Ricerca.."
                     v-model="searchTitle"
-                    @keyup.enter="$emit('performSearch', lowerSearchTitle)">
+                    @keyup.enter="$emit('performSearch', searchTitle)">
             </div>
-
-            <div v-if="lowerSearchTitle.length > 0" id="show-searched">
-                <h2>Ecco i risultati per: <h6>"{{ lowerSearchTitle }}"</h6></h2>
+            <div v-if="searchTitle.length > 0" id="show-searched">
+                <h2>Ecco i risultati per: <h6>"{{ searchTitle }}"</h6></h2>
             </div>
             
         </div>
@@ -31,18 +32,9 @@ export default {
         }
     },
     computed: {
-        lowerSearchTitle: function() {
-            return this.searchTitle.toLowerCase()
-        }
     },
     methods: {
-        search: function() {
-            console.log("ricerca")
-        }
     },
-    // props: {
-    //     "titles": Array
-    // }
 }
 
 </script>

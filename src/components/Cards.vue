@@ -76,7 +76,7 @@ export default {
         width: calc(100% / 6);
         height: calc(100vh / 4.8);
         overflow-y: auto;
-        text-align: center;
+        // text-align: center;
         padding: 5px;
         margin: 5px 10px;
     }

@@ -5,7 +5,9 @@
       <Header 
       @performSearch="searchedTitle"/>
     
-      <Main :searchedItems="films" />
+      <Main
+      :searchedFilms="films"
+       />
   
     </div>
   </div>
@@ -20,32 +22,42 @@ export default {
   name: 'App',
   data: function () {
     return {
-      // titlesInApp: '',
+      // searchedText: '',
       films: []
     }
   },
   methods: {
     searchedTitle: function (title) {
-      this.titlesInApp = title;
-      console.log(this.titlesInApp)
-      axios
-        .get('https://api.themoviedb.org/3/search/movie', {
-          params: {
-              api_key: '9e009795b16be726404835f1279d61f7',
-              query: this.titlesInApp,
-              language: "",
-              flag: ""
-          }
-        })
+      this.searchedText = title;
+      console.log(this.searchedText)
+
+      axios.all ([
+
+        // telefilm
+        axios
+          .get('https://api.themoviedb.org/3/search/tv', {
+            params: {
+                api_key: '9e009795b16be726404835f1279d61f7',
+                query: this.searchedText,
+                language: "",
+            }
+          }),
+
+        // film 
+        axios
+          .get('https://api.themoviedb.org/3/search/movie', {
+            params: {
+                api_key: '9e009795b16be726404835f1279d61f7',
+                query: this.searchedText,
+                language: "",
+            }
+          })
+        ])
         .then(
             (res) => {
-              // console.log("array intero di tutti i film: ")
-              // console.log(res);
               this.films = res.data.results;
+              // I film trovati con la ricerca 
               console.log(this.films)
-              // if (this.original_language == "it") {
-              //   return this.language = this.language
-              // }
             },
         )
     }
@@ -66,7 +78,12 @@ export default {
   }
   #big-wrap {
     min-height: 100vh;
-    background-image: linear-gradient(to top, rgb(0 0 0), rgb(255 0 0 / 85%));
+    background-image:
+      linear-gradient(
+        to top,
+        rgb(0 0 0) 70%,
+        rgb(255 0 0 / 85%)
+      );
   }
 //   background-color: #800e0e;
   //   min-height: 100vh;
