@@ -1,7 +1,7 @@
 <template>
     <div class="card">
-        <h2>{{ film.title }}</h2>
-        <h3>{{ film.original_title }}</h3>
+        <h2>Titolo: {{ film.title }}</h2>
+        <h3>Titolo originale: {{ film.original_title }}</h3>
         <h4> 
             Lingua: {{ film.original_language }}
             <img v-if="film.original_language == 'it'"
@@ -35,14 +35,14 @@ export default {
         justify-content: space-between;
         background-color: #8c2525;
         border-radius: 5px;
-        width: calc(100% / 6);
+        width: calc(100% / 5.5);
         height: calc(100vh / 4.8);
         overflow-y: auto;
         padding: 5px;
         margin: 10px;
     }
         .card::-webkit-scrollbar {
-            width: 0;  /* Remove scrollbar space */
+            width: 0; 
         }
         h2 {
             font-size: 1.4em;

@@ -34,14 +34,14 @@ export default {
         justify-content: space-between;
         background-color: #8c2525;
         border-radius: 5px;
-        width: calc(100% / 6);
+        width: calc(100% / 5.5);
         height: calc(100vh / 4.8);
         overflow-y: auto;
         padding: 5px;
         margin: 10px;
     }
         .card::-webkit-scrollbar {
-            width: 0;  /* Remove scrollbar space */
+            width: 0;
         }
         h2 {
             font-size: 1.4em;
