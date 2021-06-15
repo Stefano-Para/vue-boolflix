@@ -11,11 +11,10 @@
                     placeholder="Ricerca.."
                     v-model="searchTitle"
                     @keyup.enter="$emit('performSearch', lowerSearchTitle)">
-
             </div>
 
             <div id="show-searched">
-                <h2>Stai cercando: <h6>"{{ lowerSearchTitle }}"</h6></h2>
+                <h2>I titoli correlati a: <h6>"{{ lowerSearchTitle }}"</h6></h2>
             </div>
             
         </div>
@@ -50,8 +49,8 @@ export default {
 
 <style lang="scss" scoped>
     header {
-        background-image: linear-gradient(to top, rgba(255,0,0,0), rgba($color: #000000, $alpha: 0.5));
-        height: 100px;
+        background-image: linear-gradient(to top, rgba(255, 0, 0, 0), rgba($color: #000000, $alpha: 0.5));
+        height: 80px;
         width: 100%;
         
         #container_navbar {

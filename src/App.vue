@@ -1,64 +1,62 @@
 <template>
   <div id="app">
-
     <div id="big-wrap">
 
-      <!-- :titles="allTitles" CANCELLARE -->
       <Header 
       @performSearch="searchedTitle"/>
     
-
-      <Main :titlesInMain="titlesInApp" />
+      <Main :searchedItems="films" />
   
     </div>
-          <!-- <h2>{{ titlesInApp }}</h2> -->
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue';
 import Main from './components/Main.vue';
-
+import axios from 'axios';
 
 export default {
   name: 'App',
   data: function () {
     return {
-      // allTitles: [],
-      // searchedFieldText: ''
-      titlesInApp: ''
+      titlesInApp: '',
+      films: []
     }
   },
-  // sto sbagliando dove recuperare i dati? allTitles è VUOTO per ora
-  // devo spostarle i dati e rifare il computed + methods nel main? 
-  computed: {
-    // filteredTitle: function() {
-    //   const arrayFilteredTitles = this.allTitles.filter(
-    //     (element) => {
-    //       return element.title.toLowerCase().includes(this.searchedFieldText.toLowerCase());
-    //     }
-    //   );
-    //   return arrayFilteredTitles;
-    // }
-  },
-
   methods: {
     searchedTitle: function (title) {
-      console.log("click su ricerca titolo");
-      // console.log(title)
-      // passaggio e SALVATAGGIO in APP 
+      // passaggio e SALVATAGGIO in APP non mi serve più la stringa?
       this.titlesInApp = title;
       console.log(this.titlesInApp)
-      // this.searchedFieldText = title;
-      // console.log(this.searchedFieldText)
+      axios
+        .get('https://api.themoviedb.org/3/search/movie', {
+          params: {
+              api_key: '9e009795b16be726404835f1279d61f7',
+              query: this.titlesInApp,
+              language: "it-IT"
+          }
+        })
+        .then(
+            (res) => {
+              // console.log("array intero di tutti i film: ")
+              // console.log(res);
+              this.films = res.data.results;
+              console.log(this.films)
+
+              // a cosa mi serviva??
+              // this.films.forEach(
+              //   (element) => {
+              //     this.titles.push(element.titlesInApp)
+              //   }
+              // );             
+            }
+        )
     }
   },
   components: {
     Header,
     Main
-  },
-  props: {
-
   },
 }
 </script>

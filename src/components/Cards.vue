@@ -23,16 +23,23 @@ export default {
         display: flex;
         flex-direction: column;
         background-color: #286687;
-        border-radius: 10px;
+        border-radius: 5px;
         width: calc(100% / 6);
-        height: calc((100vh / 4) - 50px);
+        height: calc(100vh / 4.8);
         overflow-y: auto;
         text-align: center;
         padding: 5px;
-        margin: 10px;
+        margin: 5px 10px;
     }
         .card::-webkit-scrollbar {
             width: 0;  /* Remove scrollbar space */
+        }
+        h3 {
+            color: lightgrey;
+            margin: 10px 0;
+        }
+        h5 {
+            color: white;
         }
     
 </style>

@@ -1,7 +1,7 @@
 <template>
   <main>
 
-    <h2>Si vede anche in main che hai cercato: "{{ titlesInMain }}"</h2>
+    <!-- <h2>Si vede anche in main che hai cercato: "{{ titlesInMain }}"</h2> -->
 
     <div id="container_cards">
       <!-- mettere un v-if CAMPO DI RICERCA VUOTO => fai vedere una pagina di paraflix statica (banners o altro), v-else mostra cosa hai ricercato -->
@@ -10,7 +10,7 @@
       
 
       <Cards 
-      v-for="(film, index) in films"
+      v-for="(film, index) in searchedItems"
       :key="index"
       :item="film"   
       />
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 import Cards from './Cards.vue';
 
 export default {
@@ -36,37 +36,8 @@ export default {
         }
     },
     props: {
-      titlesInMain: String
+      searchedItems: Array 
     },
-    methods: {
-      
-    },
-    // bisogna spostarlo da created in methods? 
-    created: function () {
-    axios
-        .get('https://api.themoviedb.org/3/search/movie', {
-        params: {
-            api_key: '9e009795b16be726404835f1279d61f7',
-            // in questa query devo fare in modo di inserire il mio dato proveniente da HEADER tramite INPUT e fare il filter con quella parola inseria (tolti gli spazi)
-            // qui è da inserire il titlesInMain
-            query: "prova",
-            language: "it-IT"
-        }
-        })
-        .then(
-            (importAxios) => {
-                // console.log(importAxios);
-                this.films = importAxios.data.results;
-                console.log(this.films)
-
-                this.films.forEach(
-                  (element) => {
-                    this.titles.push(element.title)
-                  }
-                );             
-            }
-        )
-  }
 }
 </script>
 
