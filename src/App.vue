@@ -20,13 +20,12 @@ export default {
   name: 'App',
   data: function () {
     return {
-      titlesInApp: '',
+      // titlesInApp: '',
       films: []
     }
   },
   methods: {
     searchedTitle: function (title) {
-      // passaggio e SALVATAGGIO in APP non mi serve più la stringa?
       this.titlesInApp = title;
       console.log(this.titlesInApp)
       axios

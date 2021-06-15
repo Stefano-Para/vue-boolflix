@@ -13,8 +13,8 @@
                     @keyup.enter="$emit('performSearch', lowerSearchTitle)">
             </div>
 
-            <div id="show-searched">
-                <h2>I titoli correlati a: <h6>"{{ lowerSearchTitle }}"</h6></h2>
+            <div v-if="lowerSearchTitle.length > 0" id="show-searched">
+                <h2>Ecco i risultati per: <h6>"{{ lowerSearchTitle }}"</h6></h2>
             </div>
             
         </div>
