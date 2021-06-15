@@ -41,10 +41,10 @@ export default {
 
 <style lang="scss" scoped>
     header {
-        background-image: linear-gradient(to top, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.5));
+        background-image: linear-gradient(to top, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.6));
         height: 150px;
         width: 100%;
-        z-index: 0;
+        z-index: 1;
         position: fixed;       
         #container_navbar {
             width: 80%;
@@ -80,6 +80,9 @@ export default {
         }
     }
     header:hover {
-        background-image: linear-gradient(to top, rgba(255,0,0,0), rgba($color: #000000, $alpha: 0.8));
+        background-image: linear-gradient(to top,
+        rgba(255,0,0,0),
+        rgba($color: #000000, $alpha: 0.9) 80%
+        );
     }
 </style>

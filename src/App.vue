@@ -35,7 +35,7 @@ export default {
 
       axios.all ([
 
-        // s
+        // telefilm
         axios
           .get('https://api.themoviedb.org/3/search/tv', {
             params: {
@@ -86,7 +86,7 @@ export default {
       linear-gradient(
         to top,
         rgb(0 0 0) 70%,
-        rgb(255 0 0 / 85%)
+        rgb(255 0 0 / 90%) 90%
       );
   }
 //   background-color: #800e0e;

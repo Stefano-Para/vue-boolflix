@@ -2,26 +2,26 @@
   <main>
     
     <!-- se trovo in films  -->
-    <div class="container_cards" v-if="searchedFilms.length > 0">
-
-      <h2>I tuoi FILM</h2>
-      
-      <Cards 
-      v-for="(film, index) in searchedFilms"
-      :key="index"
-      :film="film"   
+    <div class="container_films" v-if="searchedFilms.length > 0">
+      <h1>
+        I TUOI FILM:
+      </h1>
+      <Films
+        v-for="(film, index) in searchedFilms"
+        :key="index"
+        :film="film"   
       />
     </div>
     
     <!-- se trovo in telefilms  -->
-    <div class="container_cards" v-else-if="searchedTelefilms.length > 0">
-
-      <h2>I tuoi TELEFILM</h2>
-
-      <Cards
-      v-for="(telefilm, index) in searchedTelefilms"
-      :key="index"
-      :telefilm="telefilm"
+    <div class="container_telefilms" v-if="searchedTelefilms.length > 0">
+      <h1>
+        I TUOI TELEFILM:
+      </h1>
+      <Telefilms
+        v-for="(telefilm, index) in searchedTelefilms"
+        :key="index"
+        :telefilm="telefilm"
       />
     </div> 
 
@@ -30,17 +30,20 @@
         <h2>La tua ricerca non ha prodotto nessun risultato.</h2>
         <h3>Cerca il tuo film preferito nella barra di ricerca.</h3>
     </div>
+
   </main>
 </template>
 
 <script>
 // import axios from 'axios';
-import Cards from './Cards.vue';
+import Films from './Films.vue';
+import Telefilms from './Telefilms.vue';
 
 export default {
     name: "Main",
     components: {
-        Cards,
+        Films,
+        Telefilms
     },
     data: function () {
         return {
@@ -56,15 +59,22 @@ export default {
 <style  lang="scss" scoped>
   main {
     width: 100%;
-    margin: 0 auto;
+    margin: 100px auto 0;
     display: inline-block;
     position: relative;
-    top: 80px;
-      .container_cards {
+      .container_films,
+      .container_telefilms {
       width: 90%;
-      margin: 0 auto;
+      margin: 20px auto 50px;
       display: flex;
       flex-wrap: wrap;
+      position: relative;
+        h1 {
+          color: white;
+          position: absolute;
+          top: -35px;
+          left: 10px;
+        }
       }
       #container_else {
         width: 90%;
