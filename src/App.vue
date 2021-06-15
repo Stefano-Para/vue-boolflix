@@ -33,7 +33,8 @@ export default {
           params: {
               api_key: '9e009795b16be726404835f1279d61f7',
               query: this.titlesInApp,
-              language: "it-IT"
+              language: "",
+              flag: ""
           }
         })
         .then(
@@ -42,13 +43,9 @@ export default {
               // console.log(res);
               this.films = res.data.results;
               console.log(this.films)
-
-              // a cosa mi serviva??
-              // this.films.forEach(
-              //   (element) => {
-              //     this.titles.push(element.titlesInApp)
-              //   }
-              // );             
+              if (this.original_language == "it") {
+                return this.language = this.language + "prova"
+              }
             }
         )
     }

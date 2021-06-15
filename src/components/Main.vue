@@ -28,7 +28,6 @@ export default {
     },
     data: function () {
         return {
-            films: [],
         }
     },
     props: {
