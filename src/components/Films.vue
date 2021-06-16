@@ -11,6 +11,7 @@
         <div class="card-info">        
             <h2>Titolo: {{ film.title }}</h2>
             <h3>Titolo originale: {{ film.original_title }}</h3>
+            <!-- language  -->
             <h4> 
                 Lingua: {{ film.original_language }}
                 <img v-if="film.original_language == 'it'"
@@ -21,9 +22,28 @@
                 alt="">
                 <img v-else
                     src="../assets/miss.png"
-                    alt=""> 
+                    alt="">
             </h4>
-            <h5>VOTO: {{ film.vote_average }}/10</h5>
+            <!-- rating vote + stars -->
+            <h5>
+                VOTO: {{ film.vote_average }}/10
+                <span>
+                    <!-- <i
+                        v-for="stellePiene in starCount()"
+                        :key="stellePiene" 
+                        class="fas fa-star"></i>
+                    <i
+                        v-for="stelleVuote in 5-starCount()" :key="stelleVuote" 
+                        class="far fa-star"
+                    ></i> -->
+
+                    <!-- <i
+                        v-for="i in 5"
+                        :key="i"
+                        :class="i <= starCount() ? 'fas fa-star' : 'far fa-star'"
+                    ></i> -->
+                </span>
+            </h5>
         </div>            
     </div>
 </template>
@@ -40,6 +60,11 @@ export default {
     props: {
         film: Object,
     },
+    // methods: {
+    //     starCount: function() {
+    //         return Math.round(this.film.vote_average / 2);
+    //     }
+    // }
 }
 </script>
 
@@ -65,7 +90,7 @@ export default {
             height: 350px;
             width: 19%;
             :hover {
-            opacity: 0.2;
+            opacity: 0.15;
             }
             #img-not-found {
                 width: 100%;

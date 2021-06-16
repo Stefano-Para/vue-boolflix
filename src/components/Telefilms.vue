@@ -23,7 +23,25 @@
                     src="../assets/miss.png"
                     alt=""> 
             </h4>
-            <h5>VOTO: {{ telefilm.vote_average }}/10</h5>
+            <h5>
+                VOTO: {{ telefilm.vote_average }}/10
+                <span>
+                    <!-- <i
+                        v-for="i in starCount()" :key="i" 
+                        class="fas fa-star"></i>
+                    <i
+                        v-for="i in 5-starCount()" :key="i" 
+                        class="far fa-star"
+                    ></i> -->
+
+                    <!-- <i
+                        v-for="i in 5"
+                        :key="i"
+                        :class="i <= starCount() ? 'fas fa-star' : 'far fa-star'"
+                    ></i> -->
+                </span>
+            </h5>
+            
         </div>            
     </div>
 </template>
@@ -40,6 +58,11 @@ export default {
     props: {
         telefilm: Object,
     },
+    // methods: {
+    //     starCount: function() {
+    //         return Math.round(this.telefilm.vote_average / 2);
+    //     }
+    // }
 }
 </script>
 

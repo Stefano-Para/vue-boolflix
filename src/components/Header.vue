@@ -23,7 +23,6 @@
 </template>
 
 <script>
-
 export default {
     name: 'Header',
     data: function() {
@@ -31,12 +30,7 @@ export default {
             searchTitle: ''
         }
     },
-    computed: {
-    },
-    methods: {
-    },
 }
-
 </script>
 
 <style lang="scss" scoped>
