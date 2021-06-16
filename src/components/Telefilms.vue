@@ -34,11 +34,11 @@
                         class="far fa-star"
                     ></i> -->
 
-                    <!-- <i
+                    <i
                         v-for="i in 5"
                         :key="i"
                         :class="i <= starCount() ? 'fas fa-star' : 'far fa-star'"
-                    ></i> -->
+                    ></i>
                 </span>
             </h5>
             
@@ -58,11 +58,11 @@ export default {
     props: {
         telefilm: Object,
     },
-    // methods: {
-    //     starCount: function() {
-    //         return Math.round(this.telefilm.vote_average / 2);
-    //     }
-    // }
+    methods: {
+        starCount: function() {
+            return Math.round(this.telefilm.vote_average / 2);
+        }
+    }
 }
 </script>
 

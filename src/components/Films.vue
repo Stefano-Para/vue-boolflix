@@ -28,20 +28,21 @@
             <h5>
                 VOTO: {{ film.vote_average }}/10
                 <span>
-                    <!-- <i
-                        v-for="stellePiene in starCount()"
-                        :key="stellePiene" 
+                     <!-- <i
+                        v-for="i in starCount()"
+                        :key="i" 
                         class="fas fa-star"></i>
                     <i
-                        v-for="stelleVuote in 5-starCount()" :key="stelleVuote" 
+                        v-for="i in 5-starCount()"
+                        :key="i + film.title" 
                         class="far fa-star"
                     ></i> -->
 
-                    <!-- <i
+                    <i
                         v-for="i in 5"
                         :key="i"
                         :class="i <= starCount() ? 'fas fa-star' : 'far fa-star'"
-                    ></i> -->
+                    ></i>
                 </span>
             </h5>
         </div>            
@@ -60,11 +61,11 @@ export default {
     props: {
         film: Object,
     },
-    // methods: {
-    //     starCount: function() {
-    //         return Math.round(this.film.vote_average / 2);
-    //     }
-    // }
+    methods: {
+        starCount: function() {
+            return Math.round(this.film.vote_average / 2);
+        }
+    }
 }
 </script>
 
