@@ -85,8 +85,8 @@ export default {
     background-image:
       linear-gradient(
         to top,
-        rgb(0 0 0) 70%,
-        rgb(255 0 0 / 90%) 90%
+        rgb(0 0 0),
+        rgb(255 0 0 / 90%)
       );
   }
 //   background-color: #800e0e;

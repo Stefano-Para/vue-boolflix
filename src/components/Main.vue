@@ -65,14 +65,14 @@ export default {
       .container_films,
       .container_telefilms {
       width: 90%;
-      margin: 20px auto 50px;
+      margin: 50px auto 80px;
       display: flex;
       flex-wrap: wrap;
       position: relative;
         h1 {
           color: white;
           position: absolute;
-          top: -35px;
+          top: -40px;
           left: 10px;
         }
       }
