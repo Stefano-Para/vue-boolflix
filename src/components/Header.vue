@@ -6,7 +6,6 @@
                     <img src="https://fontmeme.com/permalink/210614/5dd112198b1bd4cee91a23e783cdc370.png" alt="">
                 </a>
             </div>
-
             <div id="searchbar">
                 <input
                     type="text"
@@ -16,8 +15,7 @@
             </div>
             <div v-if="searchTitle.length > 0" id="show-searched">
                 <h2>Ecco i risultati per: <h6>"{{ searchTitle }}"</h6></h2>
-            </div>
-            
+            </div>            
         </div>
     </header>
 </template>
