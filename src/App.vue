@@ -9,9 +9,6 @@
       :searchedFilms="films"
       :searchedTelefilms="telefilms"
        />
-
-      <div style="color: white; text-align: center;">
-      </div>
   
     </div>
   </div>
@@ -29,14 +26,14 @@ export default {
       // searchedText: '',
       films: [],
       telefilms: [],
-      // suggestedFilms: []
+      suggestedFilms: '',
     }
   },
   methods: {
     searchedTitle: function (title) {
       this.searchedText = title;
       console.log(this.searchedText)
-
+      
       axios.all ([
         // telefilm
         axios

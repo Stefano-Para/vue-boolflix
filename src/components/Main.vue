@@ -2,7 +2,7 @@
   <main>
     
     <!-- se trovo in films  -->
-    <div class="container_films" v-if="searchedFilms.length > 0">
+    <div class="container_films" v-if="searchedFilms.length > 0  && searchedTelefilms.length > 0">
       <h1>
         I TUOI FILM:
       </h1>
@@ -26,9 +26,13 @@
     </div> 
 
     <!-- se non trovo nulla  -->
-    <div id="container_else" v-else>
+    <div id="container_else" v-else-if="searchedFilms.length == 0  && searchedTelefilms.length == 0">
         <h2>La tua ricerca non ha prodotto nessun risultato.</h2>
         <h3>Cerca il tuo film preferito nella barra di ricerca.</h3>
+    </div>
+    
+    <div v-else>
+      Prova
     </div>
 
   </main>

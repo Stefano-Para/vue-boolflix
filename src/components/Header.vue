@@ -14,7 +14,9 @@
                     @keyup.enter="$emit('performSearch', searchTitle)">
             </div>
             <div v-if="searchTitle.length > 0" id="show-searched">
-                <h2>Ecco i risultati per: <h6>"{{ searchTitle }}"</h6></h2>
+                <h2>Ecco i risultati per:
+                    <h6>"{{ searchTitle }}"</h6>
+                </h2>
             </div>            
         </div>
     </header>
@@ -28,6 +30,8 @@ export default {
             searchTitle: ''
         }
     },
+    methods: {
+    }
 }
 </script>
 
