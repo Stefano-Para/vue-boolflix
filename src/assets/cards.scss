@@ -43,7 +43,7 @@
         flex-direction: column;
         justify-content: space-around;
         height: 100%;
-        padding: 5px;
+        padding: 5px 15px;
         line-height: 20px;
         color: white;
         h2 {
@@ -58,15 +58,14 @@
             font-size: 0.6em;
         }
         p {
-            color: grey;
+            color: lightgrey;
             font-size: 0.8em;
             line-height: 12px;
         }
     }
-
-.container-card {
-    // transition: 0.5s;
-}
+// .container-card {
+//     transition: 0.5s;
+// }
 .container-card:hover {
     transform: scale(1.1, 1.05);
     border-radius: 10px;

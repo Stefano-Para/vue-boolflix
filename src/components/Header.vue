@@ -28,9 +28,8 @@ export default {
     data: function() {
         return {
             searchTitle: ''
+            // searchtitle vuoto impedire chiamata /> break 
         }
-    },
-    methods: {
     }
 }
 </script>

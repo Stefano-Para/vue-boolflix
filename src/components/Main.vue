@@ -30,16 +30,11 @@
         <h2>La tua ricerca non ha prodotto nessun risultato.</h2>
         <h3>Cerca il tuo film preferito nella barra di ricerca.</h3>
     </div>
-    
-    <div v-else>
-      Prova
-    </div>
 
   </main>
 </template>
 
 <script>
-// import axios from 'axios';
 import Films from './Films.vue';
 import Telefilms from './Telefilms.vue';
 
@@ -49,14 +44,10 @@ export default {
         Films,
         Telefilms
     },
-    data: function () {
-        return {
-        }
-    },
     props: {
       searchedFilms: Array,
       searchedTelefilms: Array
-    },
+    }
 }
 </script>
 

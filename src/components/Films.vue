@@ -1,6 +1,6 @@
 <template>
-    <div class="container-card">
-        <div class="card-img">
+    <div class="container-card background">
+        <div class="card-img ">
             <img
             v-if="film.poster_path != film.imgNull"
             :src="`https://image.tmdb.org/t/p/w342${film.poster_path}`" alt="">
@@ -12,8 +12,7 @@
             <!-- title + language + flag -->
             <h2 class="uppercase">
                 {{ film.title }}
-                ({{ film.original_language }}
-                <img v-if="film.original_language == 'it'"
+                <h6>({{ film.original_language }}<img v-if="film.original_language == 'it'"
                     src="../assets/it.png"
                     alt="">
                 <img v-else-if="film.original_language == 'en'"
@@ -21,7 +20,9 @@
                 alt="">
                 <img v-else
                     src="../assets/miss.png"
-                    alt="">)
+                    alt="">)</h6>
+                
+                
             </h2>
             <!-- original title  -->
             <h3 class="uppercase">{{ film.original_title }}</h3>    

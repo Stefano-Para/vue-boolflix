@@ -9,6 +9,8 @@
       :searchedFilms="films"
       :searchedTelefilms="telefilms"
        />
+
+       {{ suggestedFilms }}
   
     </div>
   </div>
@@ -28,6 +30,10 @@ export default {
       telefilms: [],
       suggestedFilms: '',
     }
+  },
+    components: {
+    Header,
+    Main
   },
   methods: {
     searchedTitle: function (title) {
@@ -63,13 +69,29 @@ export default {
               console.log(res)
             },
         )
-    }
+    } // chiusura searchedTitle
   },
-  components: {
-    Header,
-    Main
-  },
+  created: function() {
+      axios.all ([
+        // telefilm
+        axios
+          .get('https://api.themoviedb.org/3/search/tv?api_key=9e009795b16be726404835f1279d61f7&query=evangelion&language=it-IT'),
+        // film 
+        axios
+          .get('https://api.themoviedb.org/3/search/movie?api_key=9e009795b16be726404835f1279d61f7&query=evangelion&language=it-IT')
+        ])
+        .then (
+          (res) => {
+            this.films = res[1].data.results;
+              this.telefilms = res[0].data.results;
+              // this.telefilms = res
+              // I film trovati con la ricerca 
+              console.log(res)
+          }
+        )
+  }
 }
+
 </script>
 
 <style lang="scss">

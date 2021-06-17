@@ -12,7 +12,8 @@
             <!-- title + language + flag -->
             <h2 class="uppercase">
                 {{ telefilm.name }}
-                ({{ telefilm.original_language }}
+                <h6>
+                    ({{ telefilm.original_language }}
                 <img v-if="telefilm.original_language == 'it'"
                     src="../assets/it.png"
                     alt="">
@@ -22,6 +23,7 @@
                 <img v-else
                     src="../assets/miss.png"
                     alt="">)
+                </h6>
             </h2>
             <!-- original title  -->
             <h3 class="uppercase">{{ telefilm.original_name }}</h3>    
