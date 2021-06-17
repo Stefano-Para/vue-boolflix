@@ -9,8 +9,6 @@
       :searchedFilms="films"
       :searchedTelefilms="telefilms"
        />
-
-       {{ suggestedFilms }}
   
     </div>
   </div>
@@ -29,6 +27,7 @@ export default {
       films: [],
       telefilms: [],
       suggestedFilms: '',
+      x: ''
     }
   },
     components: {
@@ -38,9 +37,10 @@ export default {
   methods: {
     searchedTitle: function (title) {
       this.searchedText = title;
-      console.log(this.searchedText)
+      // console.log(this.searchedText)
       
-      axios.all ([
+      if (this.searchedText != '') {
+        axios.all ([
         // telefilm
         axios
           .get('https://api.themoviedb.org/3/search/tv', {
@@ -66,9 +66,10 @@ export default {
               this.telefilms = res[0].data.results;
               // this.telefilms = res
               // I film trovati con la ricerca 
-              console.log(res)
+              // console.log(res)
             },
         )
+      } // chiusura if
     } // chiusura searchedTitle
   },
   created: function() {
@@ -86,7 +87,7 @@ export default {
               this.telefilms = res[0].data.results;
               // this.telefilms = res
               // I film trovati con la ricerca 
-              console.log(res)
+              // console.log(res)
           }
         )
   }

@@ -27,8 +27,7 @@ export default {
     name: 'Header',
     data: function() {
         return {
-            searchTitle: ''
-            // searchtitle vuoto impedire chiamata /> break 
+            searchTitle: '' 
         }
     }
 }
